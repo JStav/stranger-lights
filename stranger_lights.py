@@ -153,6 +153,6 @@ if __name__ == '__main__':
 
 	print ('Press Ctrl-C to quit.')
 	while True:
-		show_word(strip, 'Hello my name is jason~12!')
+		show_word(strip, 'hellomynameisjason')
 		random_color_wipe(strip)
 
