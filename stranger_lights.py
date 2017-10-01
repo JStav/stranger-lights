@@ -151,23 +151,8 @@ if __name__ == '__main__':
 	# Intialize the library (must be called once before other functions).
 	strip.begin()
 
-	i = 1;
 	print ('Press Ctrl-C to quit.')
 	while True:
-		print("Iteration #" + str(i))
-		print("Time: " + str(datetime.datetime.now()))
-		show_word(strip, 'abcdefghijklmnopqrstuvwxyz')
+		show_word(strip, 'Hello my name is jason~12!')
 		random_color_wipe(strip)
-		i = i + 1
-		#randon(strip, Color(255, 0, 0))  # Red wipe
-		#colorWipe(strip, Color(0, 255, 0))  # Blue wipe
-		#colorWipe(strip, Color(0, 0, 255))  # Green wipe
-		#print ('Theater chase animations.')
-		#theaterChase(strip, Color(127, 127, 127))  # White theater chase
-		#theaterChase(strip, Color(127,   0,   0))  # Red theater chase
-		#theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
-		#print ('Rainbow animations.')
-		#rainbow(strip)
-		#rainbowCycle(strip)
-		#theaterChaseRainbow(strip)
 
