@@ -44,7 +44,7 @@ def show_word(strip, word):
 		show_letter(strip, letter)
 
 def show_letter(strip, letter):
-	position = LETTERS[letter] - 1
+	position = LETTERS[letter.lower()] - 1
 	
 	color = COLORS[letter]
 	strip.setPixelColor(position, color)
