@@ -37,14 +37,14 @@ COLORS = { 'a': COLOR_WHITE, 'b' : COLOR_BLUE, 'c' : COLOR_FUCHSIA, 'd' : COLOR_
 	'r' : COLOR_MINT, 's' : COLOR_WHITE, 't' : COLOR_YELLOW, 'u' : COLOR_BLUE, 'v' : COLOR_FUCHSIA, 'w' : COLOR_BLUE,'x' :  COLOR_YELLOW, 'y' : COLOR_RED, 'z' : COLOR_FUCHSIA }
 
 def letters(input):
-    return ''.join(filter(str.isalpha, input))
+    return ''.join(filter(str.isalpha, input.lower()))
 
 def show_word(strip, word):
 	for letter in letters(word):
 		show_letter(strip, letter)
 
 def show_letter(strip, letter):
-	position = LETTERS[letter.lower()] - 1
+	position = LETTERS[letter] - 1
 	
 	color = COLORS[letter]
 	strip.setPixelColor(position, color)
