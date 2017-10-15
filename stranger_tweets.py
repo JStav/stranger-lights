@@ -5,6 +5,7 @@ import stranger_lights
 SLEEP_COOLDOWN = 4
 COMMAND_ALLOW = '!allow'
 COMMAND_RAINBOW = '!rb'
+COMMAND_THEATER_CHASE = '!tc'
 COMMAND_WIPEB = '!wipeb'
 COMMAND_WIPEY = '!wipey'
 COMMAND_WIPEW = '!wipew'
@@ -47,6 +48,8 @@ def parse_command(command):
 		driver.color_wipef()
 	elif command == COMMAND_WIPEM:
 		driver.color_wipem()
+	elif command == COMMAND_THEATER_CHASE:
+		driver.theater_chase_rainbow()
 	elif command == COMMAND_ALLOW:
 		pass
 
