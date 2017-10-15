@@ -59,7 +59,7 @@ class LightDriver:
 		time.sleep(0.7)
 
 	def all_off(self):
-		
+
 		for i in range(self.strip.numPixels()):
 			self.strip.setPixelColor(i, 0)
 
@@ -110,7 +110,7 @@ class LightDriver:
 				for i in range(0, strip.numPixels(), 3):
 					strip.setPixelColor(i+q, 0)
 
-	def wheel(pos):
+	def wheel(self, pos):
 		"""Generate rainbow colors across 0-255 positions."""
 		if pos < 85:
 			return Color(pos * 3, 255 - pos * 3, 0)
@@ -121,12 +121,12 @@ class LightDriver:
 			pos -= 170
 			return Color(0, pos * 3, 255 - pos * 3)
 
-	def rainbow(strip, wait_ms=20, iterations=1):
+	def rainbow(self, wait_ms=20, iterations=1):
 		"""Draw rainbow that fades across all pixels at once."""
 		for j in range(256*iterations):
-			for i in range(strip.numPixels()):
-				strip.setPixelColor(i, wheel((i+j) & 255))
-			strip.show()
+			for i in range(self.strip.numPixels()):
+				self.strip.setPixelColor(i, self.wheel((i+j) & 255))
+			self.strip.show()
 			time.sleep(wait_ms/1000.0)
 
 	def rainbowCycle(strip, wait_ms=20, iterations=5):

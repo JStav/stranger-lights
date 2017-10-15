@@ -4,8 +4,9 @@ import stranger_lights
 
 SLEEP_COOLDOWN = 4
 COMMAND_ALLOW = '!allow'
+COMMAND_RAINBOW = '!rb'
 
-COMMANDS = { COMMAND_ALLOW }
+COMMANDS = { COMMAND_ALLOW, COMMAND_RAINBOW }
 
 keys = open('keys.txt', 'r')
 
@@ -27,7 +28,11 @@ driver = stranger_lights.LightDriver()
 last_id = -1
 
 def parse_command(command):
-	pass
+	if command == COMMAND_RAINBOW:
+		driver.rainbow()
+	elif command == COMMAND_ALLOW:
+		pass
+
 
 def parse_message(message):
 
