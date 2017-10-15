@@ -40,7 +40,7 @@ def parse_message(message):
 	last_id = message.id
 	
 	if message.text[0] == '!':
-		parse_command(message.text.encode("utf-8"))
+		parse_command(message.text.unicodestring.encode("ascii"))
 	else:
 		driver.show_word(message.text)
 		print message.id
