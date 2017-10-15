@@ -38,7 +38,7 @@ class LightDriver:
 	def __init__(self):
 		pass
 
-	def letters(input):
+	def letters(self, input):
 	    return ''.join(filter(str.isalpha, input.lower()))
 
 	def show_word(self, word):
@@ -46,9 +46,9 @@ class LightDriver:
 		global strip 
 
 		for letter in self.letters(word):
-			show_letter(strip, letter)
+			self.show_letter(strip, letter)
 
-	def show_letter(strip, letter):
+	def show_letter(self, strip, letter):
 		position = LETTERS[letter] - 1
 		
 		color = COLORS[letter]
