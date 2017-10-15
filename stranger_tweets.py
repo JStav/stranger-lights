@@ -21,7 +21,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 # Init driver
-driver = LightDriver()
+driver = stranger_lights.LightDriver()
 
 # Init last message
 last_id = -1
