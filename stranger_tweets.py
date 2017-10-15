@@ -40,11 +40,11 @@ def parse_message(message):
 	last_id = message.id
 	
 	if message.text[0] == '!':
-		parse_command(message.text.encode("ascii"))
+		parse_command(message.text.encode("ascii", "ignore"))
 	else:
-		driver.show_word(message.text.encode("ascii"))
 		print message.id
 		print message.text
+		driver.show_word(message.text.encode("ascii", "ignore"))
 
 
 while True:
