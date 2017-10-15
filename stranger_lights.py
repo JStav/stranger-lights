@@ -94,11 +94,11 @@ class LightDriver:
 
 
 	# Define functions which animate LEDs in various ways.
-	def colorWipe(strip, color, wait_ms=50):
+	def color_wipe(self, color, wait_ms=50):
 		"""Wipe color across display a pixel at a time."""
-		for i in range(strip.numPixels()):
-			strip.setPixelColor(i, 0)
-			strip.show()
+		for i in range(self.strip.numPixels()):
+			self.strip.setPixelColor(i, color)
+			self.strip.show()
 			time.sleep(wait_ms/1000.0)
 
 	def theaterChase(strip, color, wait_ms=50, iterations=10):
