@@ -37,11 +37,11 @@ class LightDriver:
 
 	def __init__(self):
 		pass
-		
+
 	def letters(input):
 	    return ''.join(filter(str.isalpha, input.lower()))
 
-	def show_word(word):
+	def show_word(self, word):
 		
 		global strip 
 
