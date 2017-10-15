@@ -42,31 +42,28 @@ class LightDriver:
 	    return ''.join(filter(str.isalpha, input.lower()))
 
 	def show_word(self, word):
-		
-		global strip 
 
 		for letter in self.letters(word):
 			self.show_letter(letter)
 
 	def show_letter(self, letter):
 
-		global strip
-		
-		position = LETTERS[letter] - 1
-		
-		color = COLORS[letter]
-		strip.setPixelColor(position, color)
-		strip.show()	
+		position = self.LETTERS[letter] - 1
+		color = self.COLORS[letter]
+
+		self.strip.setPixelColor(position, color)
+		self.strip.show()	
 		time.sleep(1.2)
-		strip.setPixelColor(position, 0)
-		strip.show()
+		self.strip.setPixelColor(position, 0)
+		self.strip.show()
 		time.sleep(0.7)
 
-	def all_off(srip):
-		for i in range(strip.numPixels()):
-			strip.setPixelColor(i, 0)
+	def all_off(self):
+		
+		for i in range(self.strip.numPixels()):
+			self.strip.setPixelColor(i, 0)
 
-		strip.show()
+		self.strip.show()
 
 	def random_color_wipe(strip, count=5, groupcount=6, wait_ms=500):
 
