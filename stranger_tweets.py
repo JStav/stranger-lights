@@ -42,7 +42,7 @@ def parse_message(message):
 	if message.text[0] == '!':
 		parse_command(message.text.encode("ascii"))
 	else:
-		driver.show_word(message.text)
+		driver.show_word(message.text.encode("ascii"))
 		print message.id
 		print message.text
 
