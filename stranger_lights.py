@@ -34,7 +34,7 @@ class LightDriver:
 
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
 
-	def __init__():
+	def __init__(self):
 			# Intialize the library (must be called once before other functions).
 			strip.begin()
 
@@ -42,6 +42,9 @@ class LightDriver:
 	    return ''.join(filter(str.isalpha, input.lower()))
 
 	def show_word(word):
+		
+		global strip 
+
 		for letter in letters(word):
 			show_letter(strip, letter)
 

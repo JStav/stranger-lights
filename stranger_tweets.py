@@ -7,6 +7,25 @@ COMMAND_ALLOW = '!allow'
 
 COMMANDS = { COMMAND_ALLOW }
 
+keys = open('keys.txt', 'r')
+
+# Read keys from file
+consumer_key = keys.readline().strip()
+consumer_secret = keys.readline().strip()
+access_token = keys.readline().strip()
+access_token_secret = keys.readline().strip()
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth)
+
+# Init driver
+driver = LightDriver()
+
+# Init last message
+last_id = -1
+
 def parse_command(command):
 	pass
 
@@ -27,25 +46,6 @@ def parse_message(message):
 		print message.id
 		print message.text
 
-
-keys = open('keys.txt', 'r')
-
-# Read keys from file
-consumer_key = keys.readline().strip()
-consumer_secret = keys.readline().strip()
-access_token = keys.readline().strip()
-access_token_secret = keys.readline().strip()
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-
-api = tweepy.API(auth)
-
-# Init driver
-driver = LightDriver()
-
-# Init last message
-last_id = -1
 
 while True:
 
