@@ -43,6 +43,8 @@ class LightDriver:
 
 	def show_word(self, word):
 
+		self.all_off()
+
 		for letter in self.letters(word):
 			self.show_letter(letter)
 
