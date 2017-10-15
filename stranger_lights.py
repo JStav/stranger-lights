@@ -33,11 +33,11 @@ class LightDriver:
 		'r' : COLOR_MINT, 's' : COLOR_WHITE, 't' : COLOR_YELLOW, 'u' : COLOR_BLUE, 'v' : COLOR_FUCHSIA, 'w' : COLOR_BLUE,'x' :  COLOR_YELLOW, 'y' : COLOR_RED, 'z' : COLOR_FUCHSIA }
 
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+	strip.begin()
 
 	def __init__(self):
-			# Intialize the library (must be called once before other functions).
-			strip.begin()
-
+		pass
+		
 	def letters(input):
 	    return ''.join(filter(str.isalpha, input.lower()))
 
