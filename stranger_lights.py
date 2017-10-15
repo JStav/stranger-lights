@@ -46,9 +46,12 @@ class LightDriver:
 		global strip 
 
 		for letter in self.letters(word):
-			self.show_letter(strip, letter)
+			self.show_letter(letter)
 
-	def show_letter(self, strip, letter):
+	def show_letter(self, letter):
+
+		global strip
+		
 		position = LETTERS[letter] - 1
 		
 		color = COLORS[letter]
