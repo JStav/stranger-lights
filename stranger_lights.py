@@ -101,6 +101,24 @@ class LightDriver:
 			self.strip.show()
 			time.sleep(wait_ms/1000.0)
 
+	def color_wipeb(self, wait_ms=50):
+		self.color_wipe(self.COLOR_BLUE)
+
+	def color_wipey(self, wait_ms=50):
+		self.color_wipe(self.COLOR_YELLOW)
+
+	def color_wipew(self, wait_ms=50):
+		self.color_wipe(self.COLOR_WHITE)
+
+	def color_wiper(self, wait_ms=50):
+		self.color_wipe(self.COLOR_RED)
+
+	def color_wipef(self, wait_ms=50):
+		self.color_wipe(self.COLOR_FUCHSIA)
+
+	def color_wipem(self, wait_ms=50):
+		self.color_wipe(self.COLOR_MINT)
+
 	def theaterChase(strip, color, wait_ms=50, iterations=10):
 		"""Movie theater light style chaser animation."""
 		for j in range(iterations):

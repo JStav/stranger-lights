@@ -12,15 +12,6 @@ COMMAND_WIPER = '!wiper'
 COMMAND_WIPEF = '!wipef'
 COMMAND_WIPEM = '!wipem'
 
-COLOR_BLUE = Color(14, 63, 180)
-COLOR_YELLOW = Color(255, 174, 0)
-COLOR_WHITE = Color(255, 255, 255)
-COLOR_RED = Color(255, 0, 0)
-COLOR_FUCHSIA = Color(149, 12, 141)
-COLOR_MINT = Color(59, 208, 216)
-
-COMMANDS = { COMMAND_ALLOW, COMMAND_RAINBOW }
-
 keys = open('keys.txt', 'r')
 
 # Read keys from file
@@ -45,17 +36,17 @@ def parse_command(command):
 	if command == COMMAND_RAINBOW:
 		driver.rainbow_cycle()
 	elif command == COMMAND_WIPEB:
-		driver.color_wipe(COLOR_BLUE)
+		driver.color_wipeb()
 	elif command == COMMAND_WIPEY:
-		driver.color_wipe(COLOR_YELLOW)
+		driver.color_wipey()
 	elif command == COMMAND_WIPEW:
-		driver.color_wipe(COLOR_WHITE)
+		driver.color_wipew()
 	elif command == COMMAND_WIPER:
-		driver.color_wipe(COLOR_BLUE)
+		driver.color_wiper()
 	elif command == COMMAND_WIPEF:
-		driver.color_wipe(COLOR_FUCHSIA)
+		driver.color_wipef()
 	elif command == COMMAND_WIPEM:
-		driver.color_wipe(COLOR_MINT)
+		driver.color_wipem()
 	elif command == COMMAND_ALLOW:
 		pass
 
@@ -69,12 +60,13 @@ def parse_message(message):
 		return
 
 	last_id = message.id
+
+	print message.id
+	print message.text
 	
 	if message.text[0] == '!':
 		parse_command(message.text.encode("ascii", "ignore").lower())
 	else:
-		print message.id
-		print message.text
 		driver.show_word(message.text.encode("ascii", "ignore"))
 
 
