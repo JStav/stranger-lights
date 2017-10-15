@@ -135,7 +135,7 @@ class LightDriver:
 		"""Draw rainbow that uniformly distributes itself across all pixels."""
 		for j in range(256*iterations):
 			for i in range(self.strip.numPixels()):
-				strip.setPixelColor(i, self.wheel((int(i * 256 / self.strip.numPixels()) + j) & 255))
+				self.strip.setPixelColor(i, self.wheel((int(i * 256 / self.strip.numPixels()) + j) & 255))
 			self.strip.show()
 			time.sleep(wait_ms/1000.0)
 
