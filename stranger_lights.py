@@ -91,8 +91,6 @@ class LightDriver:
 			strip.show()
 			time.sleep(0.5)
 
-
-
 	# Define functions which animate LEDs in various ways.
 	def color_wipe(self, color, wait_ms=50):
 		"""Wipe color across display a pixel at a time."""
