@@ -131,12 +131,12 @@ class LightDriver:
 			self.strip.show()
 			time.sleep(wait_ms/1000.0)
 
-	def rainbowCycle(strip, wait_ms=20, iterations=5):
+	def rainbow_cycle(self, wait_ms=20, iterations=5):
 		"""Draw rainbow that uniformly distributes itself across all pixels."""
 		for j in range(256*iterations):
-			for i in range(strip.numPixels()):
-				strip.setPixelColor(i, wheel((int(i * 256 / strip.numPixels()) + j) & 255))
-			strip.show()
+			for i in range(self.strip.numPixels()):
+				strip.setPixelColor(i, self.wheel((int(i * 256 / strip.numPixels()) + j) & 255))
+			self.strip.show()
 			time.sleep(wait_ms/1000.0)
 
 	def theaterChaseRainbow(strip, wait_ms=50):

@@ -29,7 +29,7 @@ last_id = -1
 
 def parse_command(command):
 	if command == COMMAND_RAINBOW:
-		driver.rainbow()
+		driver.rainbow_cycle()
 	elif command == COMMAND_ALLOW:
 		pass
 
