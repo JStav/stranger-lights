@@ -162,7 +162,7 @@ class LightDriver:
 		for j in range(256):
 			for q in range(3):
 				for i in range(0, self.strip.numPixels(), 3):
-					self.strip.setPixelColor(i+q, wheel((i+j) % 255))
+					self.strip.setPixelColor(i+q, self.wheel((i+j) % 255))
 				self.strip.show()
 				time.sleep(wait_ms/1000.0)
 				for i in range(0, self.strip.numPixels(), 3):
