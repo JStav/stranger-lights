@@ -70,8 +70,10 @@ class LightDriver:
 
 	def all_on(self):
 
-		for i in range(self.strip.numPixels()):
-			self.strip.setPixelColor(i, self.COLORS[i])
+		for letter in 'abcdefghijklmnopqrstuvwxyz':
+			position = self.LETTERS[letter] - 1
+			color = self.COLORS[letter]
+			self.strip.setPixelColor(position, color)
 
 		self.strip.show()
 
