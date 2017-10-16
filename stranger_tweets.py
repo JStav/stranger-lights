@@ -16,6 +16,7 @@ COMMAND_WIPEF = '!wipef'
 COMMAND_WIPEM = '!wipem'
 COMMAND_WIPE = '!wipe'
 COMMAND_NORMAL = '!nm'
+COMMAND_OFF = '!off'
 
 keys = open('keys.txt', 'r')
 
@@ -42,6 +43,8 @@ def parse_command(command):
 		driver.rainbow_cycle()
 	elif command == COMMAND_NORMAL:
 		driver.normal_mode()
+	elif command == COMMAND_OFF:
+		driver.all_off()
 	elif command == COMMAND_WIPE:
 		driver.color_wipeb()
 		driver.color_wipey()
