@@ -16,7 +16,7 @@ COMMAND_WIPEF = '!wipef'
 COMMAND_WIPEM = '!wipem'
 COMMAND_WIPE = '!wipe'
 
-keys = open('keys.txt', 'r')
+keys = open('/home/pi/keys.txt', 'r')
 
 # Read keys from file
 consumer_key = keys.readline().strip()
