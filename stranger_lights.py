@@ -29,6 +29,8 @@ class LightDriver:
 		'i' : 31, 'j' : 30, 'k' : 29, 'l' : 28, 'm' : 27, 'n' : 26, 'o' : 25, 'p' : 24, 'q' : 23,
 		'r' : 35, 's' : 36, 't' : 37, 'u' : 38, 'v' : 39, 'w' : 40, 'x' : 41, 'y' : 42, 'z' : 43 }
 
+	OTHER_PIXELS = { 1, 2, 3 , 4, 5, 6, 7, 8, 9, 10, 11, 12, 44, 45, 46, 47, 48, 49, 50 }
+
 	COLORS = { 'a': COLOR_WHITE, 'b' : COLOR_BLUE, 'c' : COLOR_FUCHSIA, 'd' : COLOR_MINT, 'e' : COLOR_BLUE, 'f' : COLOR_YELLOW, 'g' : COLOR_RED, 'h' : COLOR_BLUE,
 		'i' : COLOR_BLUE, 'j' : COLOR_FUCHSIA, 'k' : COLOR_BLUE, 'l' : COLOR_WHITE, 'm' : COLOR_YELLOW, 'n' : COLOR_RED, 'o' : COLOR_FUCHSIA, 'p' : COLOR_MINT, 'q' : COLOR_FUCHSIA,
 		'r' : COLOR_MINT, 's' : COLOR_WHITE, 't' : COLOR_YELLOW, 'u' : COLOR_BLUE, 'v' : COLOR_FUCHSIA, 'w' : COLOR_BLUE,'x' :  COLOR_YELLOW, 'y' : COLOR_RED, 'z' : COLOR_FUCHSIA }
@@ -38,6 +40,11 @@ class LightDriver:
 
 	def __init__(self):
 		pass
+
+	def random_color(self):
+
+		pick = random.randint(0, 26)
+		return self.COLORS[pick]
 
 	def letters(self, input):
 	    return ''.join(filter(str.isalpha, input.lower()))
@@ -70,6 +77,10 @@ class LightDriver:
 
 	def all_on(self):
 
+		for i in OTHER_PIXELS:
+			color = self.random_color()
+			self.strip.setPixelColor(i - 1, color)
+
 		for letter in 'abcdefghijklmnopqrstuvwxyz':
 			position = self.LETTERS[letter] - 1
 			color = self.COLORS[letter]
@@ -78,34 +89,6 @@ class LightDriver:
 		self.strip.show()
 
 	def normal_mode(self):
-
-		# LED strip configuration:
-		LED_COUNT      = 50      # Number of LED pixels.
-		LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
-		#LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
-		LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
-		LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-		LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
-		LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-		LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
-		LED_STRIP      = ws.WS2811_STRIP_RGB   # Strip type and colour ordering
-
-		self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
-			LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-		self.strip.begin()
-
-		self.all_on()
-
-		self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
-			155, LED_CHANNEL, LED_STRIP)
-		self.strip.begin()
-
-		self.all_on()
-
-		self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
-			LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
-		self.strip.begin()
-
 		self.all_on()
 
 	def random_color_wipe(strip, count=5, groupcount=6, wait_ms=500):
