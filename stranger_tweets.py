@@ -3,7 +3,6 @@ import tweepy
 import time
 import stranger_lights
 
-ITERATIONS = 14
 SLEEP_COOLDOWN = 4
 
 COMMAND_ALLOW = '!allow'
@@ -83,11 +82,7 @@ def parse_message(message):
 	else:
 		driver.show_word(message.text.encode("ascii", "ignore"))
 
-iteration = 0
-
-while iteration < ITERATIONS:
-
-	print iteration
+while True:
 
 	# Only get the latest message
 	messages = api.direct_messages(count=1)
@@ -95,7 +90,6 @@ while iteration < ITERATIONS:
 	for message in messages:
 		parse_message(message)
 	
-	iteration = iteration + 1
 	time.sleep(SLEEP_COOLDOWN)
 
 
