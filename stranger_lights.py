@@ -68,6 +68,29 @@ class LightDriver:
 
 		self.strip.show()
 
+	def all_on(self):
+
+		for i in range(self.strip.numPixels()):
+			self.strip.setPixelColor(i, self.COLORS[i])
+
+		self.strip.show()
+
+	def normal_mode(self):
+		self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+		self.strip.begin()
+
+		self.all_on()
+
+		self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 155, LED_CHANNEL, LED_STRIP)
+		self.strip.begin()
+
+		self.all_on()
+
+		self.strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+		self.strip.begin()
+
+		self.all_on()
+
 	def random_color_wipe(strip, count=5, groupcount=6, wait_ms=500):
 
 		colors = [ COLOR_BLUE, COLOR_RED, COLOR_YELLOW, COLOR_MINT ]
