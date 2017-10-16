@@ -77,7 +77,7 @@ class LightDriver:
 
 	def all_on(self):
 
-		for i in OTHER_PIXELS:
+		for i in self.OTHER_PIXELS:
 			color = self.random_color()
 			self.strip.setPixelColor(i - 1, color)
 
