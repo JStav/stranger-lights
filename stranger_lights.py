@@ -29,7 +29,7 @@ class LightDriver:
 		'i' : 31, 'j' : 30, 'k' : 29, 'l' : 28, 'm' : 27, 'n' : 26, 'o' : 25, 'p' : 24, 'q' : 23,
 		'r' : 35, 's' : 36, 't' : 37, 'u' : 38, 'v' : 39, 'w' : 40, 'x' : 41, 'y' : 42, 'z' : 43 }
 
-	OTHER_PIXELS = { 1, 2, 3 , 4, 5, 6, 7, 8, 9, 10, 11, 12, 44, 45, 46, 47, 48, 49, 50 }
+	OTHER_PIXELS = { 1, 2, 3 , 4, 5, 6, 7, 8, 9, 10, 11, 12, 20, 21, 22, 31, 32, 33, 44, 45, 46, 47, 48, 49, 50 }
 
 	COLORS = { 'a': COLOR_WHITE, 'b' : COLOR_BLUE, 'c' : COLOR_FUCHSIA, 'd' : COLOR_MINT, 'e' : COLOR_BLUE, 'f' : COLOR_YELLOW, 'g' : COLOR_RED, 'h' : COLOR_BLUE,
 		'i' : COLOR_BLUE, 'j' : COLOR_FUCHSIA, 'k' : COLOR_BLUE, 'l' : COLOR_WHITE, 'm' : COLOR_YELLOW, 'n' : COLOR_RED, 'o' : COLOR_FUCHSIA, 'p' : COLOR_MINT, 'q' : COLOR_FUCHSIA,
