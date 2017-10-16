@@ -43,8 +43,9 @@ class LightDriver:
 
 	def random_color(self):
 
-		pick = random.randint(0, 26)
-		return self.COLORS[pick]
+		alpha = 'abcdefghijklmnopqrstuvwxyz'
+		pick = random.randint(0, 25)
+		return self.COLORS[alpha[pick]]
 
 	def letters(self, input):
 	    return ''.join(filter(str.isalpha, input.lower()))
