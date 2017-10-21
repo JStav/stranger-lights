@@ -37,65 +37,63 @@ driver = stranger_lights.LightDriver()
 # Init last message
 last_id = -1
 
+
 def parse_command(command):
+    if command == COMMAND_RAINBOW:
+        driver.rainbow_cycle()
+    elif command == COMMAND_NORMAL:
+        driver.normal_mode()
+    elif command == COMMAND_OFF:
+        driver.all_off()
+    elif command == COMMAND_WIPE:
+        driver.color_wipeb()
+        driver.color_wipey()
+        driver.color_wipew()
+        driver.color_wiper()
+        driver.color_wipef()
+        driver.color_wipem()
+    elif command == COMMAND_WIPEB:
+        driver.color_wipeb()
+    elif command == COMMAND_WIPEY:
+        driver.color_wipey()
+    elif command == COMMAND_WIPEW:
+        driver.color_wipew()
+    elif command == COMMAND_WIPER:
+        driver.color_wiper()
+    elif command == COMMAND_WIPEF:
+        driver.color_wipef()
+    elif command == COMMAND_WIPEM:
+        driver.color_wipem()
+    elif command == COMMAND_THEATER_CHASE:
+        driver.theater_chase_rainbow()
+    elif command == COMMAND_ALLOW:
+        pass
 
-	if command == COMMAND_RAINBOW:
-		driver.rainbow_cycle()
-	elif command == COMMAND_NORMAL:
-		driver.normal_mode()
-	elif command == COMMAND_OFF:
-		driver.all_off()
-	elif command == COMMAND_WIPE:
-		driver.color_wipeb()
-		driver.color_wipey()
-		driver.color_wipew()
-		driver.color_wiper()
-		driver.color_wipef()
-		driver.color_wipem()
-	elif command == COMMAND_WIPEB:
-		driver.color_wipeb()
-	elif command == COMMAND_WIPEY:
-		driver.color_wipey()
-	elif command == COMMAND_WIPEW:
-		driver.color_wipew()
-	elif command == COMMAND_WIPER:
-		driver.color_wiper()
-	elif command == COMMAND_WIPEF:
-		driver.color_wipef()
-	elif command == COMMAND_WIPEM:
-		driver.color_wipem()
-	elif command == COMMAND_THEATER_CHASE:
-		driver.theater_chase_rainbow()
-	elif command == COMMAND_ALLOW:
-		pass
 
+def parse_message(pm):
+    global last_id
 
-def parse_message(message):
+    # Do nothing if there is no new messages
+    if pm.id == last_id:
+        return
 
-	global last_id
+    last_id = pm.id
 
-	# Do nothing if there is no new messages
-	if message.id == last_id:
-		return
+    print pm.id
+    print pm.text
 
-	last_id = message.id
+    if pm.text[0] == '!':
+        parse_command(pm.text.encode("ascii", "ignore").lower())
+    else:
+        driver.show_word(pm.text.encode("ascii", "ignore"))
 
-	print message.id
-	print message.text
-	
-	if message.text[0] == '!':
-		parse_command(message.text.encode("ascii", "ignore").lower())
-	else:
-		driver.show_word(message.text.encode("ascii", "ignore"))
 
 while True:
 
-	# Only get the latest message
-	messages = api.direct_messages(count=1)
+    # Only get the latest message
+    messages = api.direct_messages(count=1)
 
-	for message in messages:
-		parse_message(message)
-	
-	time.sleep(SLEEP_COOLDOWN)
+    for message in messages:
+        parse_message(message)
 
-
+    time.sleep(SLEEP_COOLDOWN)
